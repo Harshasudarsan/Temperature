@@ -107,7 +107,6 @@ public class Main {
 
         Map<String, Stats> map = new HashMap<>(10_000);
 
-        // Skip partial first line
         if (skipFirstLine) {
             while (buf.hasRemaining()) {
                 if (buf.get() == '\n') break;
@@ -127,7 +126,7 @@ public class Main {
             }
             else if (c == '\n') {
 
-                if (temp.length() > 0) { // ✅ safety check
+                if (temp.length() > 0) { 
                     double value = Double.parseDouble(temp.toString());
                     map.computeIfAbsent(station.toString(),
                             k -> new Stats()).add(value);
